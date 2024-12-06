@@ -1,0 +1,6 @@
+[workspace]
+resolver = "2"
+members = ["day01", "day02", "day04", "day05"]
+
+[workspace.dependencies]
+divan = "0.1.16"
