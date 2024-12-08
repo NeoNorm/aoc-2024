@@ -25,9 +25,10 @@ fn solver(operands: &[isize], result: isize) -> bool {
             || format!("{}{}", operands[0], *operand).parse::<isize>().unwrap() == result;
     } 
 
+    let concat_dividend = 10_isize.pow(operand.ilog10() + 1);
     solver(&operands[0..&operands.len() - 1], result - operand)
-    || if (result - operand) % 10_isize.pow(operand.ilog10() + 1) == 0 {
-            solver(&operands[0..&operands.len() - 1], (result - operand) / 10_isize.pow(operand.ilog10() + 1))
+    || if (result - operand) % concat_dividend == 0 {
+            solver(&operands[0..&operands.len() - 1], concat_dividend)
         } else { false }
     || if result % operand == 0 {
             solver(&operands[0..&operands.len() - 1], result / operand)

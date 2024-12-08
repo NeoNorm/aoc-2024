@@ -7,6 +7,6 @@ fn main() {
 }
 
 #[divan::bench]
-fn first() {
+fn first_solution() {
     go(divan::black_box(INPUT));
 }
